@@ -4,8 +4,8 @@ import {useLocation, useNavigate } from 'react-router-dom';
 export default function Header() {
     const location = useLocation();
     const nav = useNavigate();
-    function pathMatchRoute(route) {
-        if (route ===  location.pathname) {
+    function pathMatchRoute(path) {
+        if (path ===  location.pathname) {
             return true;
         }
     }
@@ -17,12 +17,12 @@ export default function Header() {
             </div>
             <div>
                 <ul className='flex space-x-10'>
-                    <li className={`cursor-pointer py-3 font-semibold text-gray-400 border-b-[3px] border-b-transparent ${pathMatchRoute("/") && "text-black border-b-red-500" }`} onClick={() => nav("/")}>Home</li>
-                    <li className={`cursor-pointer py-3 font-semibold text-gray-400 border-b-[3px] border-b-transparent ${pathMatchRoute("/offers") && "text-black border-b-red-500" }`} onClick={() => nav("/offers")}>Offers</li>
-                    <li className={`cursor-pointer py-3 font-semibold text-gray-400 border-b-[3px] border-b-transparent ${pathMatchRoute("/login") && "text-black border-b-red-500" }`} onClick={() => nav("/login")}>Sign In</li>
+                    <li className={`cursor-pointer py-3 font-semibold ${pathMatchRoute("/") ? "text-black border-b-[3px] border-b-red-500":"text-gray-400"} `} onClick={() => nav("/")}>Home</li>
+                    <li className={`cursor-pointer py-3 font-semibold ${pathMatchRoute("/offers") ? "text-black border-b-[3px] border-b-red-500":"text-gray-400"} `} onClick={() => nav("/offers")}>Offers</li>
+                    <li className={`cursor-pointer py-3 font-semibold ${pathMatchRoute("/login") ? "text-black border-b-[3px] border-b-red-500":"text-gray-400"} `} onClick={() => nav("/login")}>Sign In</li>
                 </ul>
             </div>
         </header>
     </div>
-  )
+  );
 }
