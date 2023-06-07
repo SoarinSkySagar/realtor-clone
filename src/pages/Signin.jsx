@@ -33,7 +33,7 @@ const [showPassword, setShow] = useState(false);
         navigate("/");
       }
     } catch (error) {
-      toast.error("Bad user credentials");
+      toast.error("Wrong user credentials");
     }
   }
 

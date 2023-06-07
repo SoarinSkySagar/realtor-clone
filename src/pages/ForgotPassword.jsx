@@ -20,6 +20,7 @@ export default function ForgotPassword() {
       const auth = getAuth();
       await sendPasswordResetEmail(auth, email);
       toast.success("Password reset email sent");
+      navigate("/login");
     } catch (error) {
       toast.error("No account exists with the given email");
     }
